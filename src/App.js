@@ -1,4 +1,4 @@
-// src/App.js
+
 
 import React, { useState, useEffect } from 'react';
 import './App.css';
@@ -10,13 +10,13 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
 
-  // ✅ Load history from localStorage on app start
+  
   useEffect(() => {
     const saved = localStorage.getItem('moodHistory');
     if (saved) setHistory(JSON.parse(saved));
   }, []);
 
-  // ✅ Save history to localStorage whenever it changes
+
   useEffect(() => {
     localStorage.setItem('moodHistory', JSON.stringify(history));
   }, [history]);
@@ -41,7 +41,7 @@ function App() {
       const label = predictions[0]?.label || 'Unknown';
       setMood(label);
 
-      // ✅ Add to history
+    
       setHistory(prev => [...prev, { text: entry, mood: label }]);
     } catch (error) {
       console.error('Error analyzing mood:', error);
